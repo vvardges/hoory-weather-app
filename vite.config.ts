@@ -7,6 +7,7 @@ import * as path from "node:path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/hoory-weather-app/',
   plugins: [react(), eslint()],
   resolve: {
     alias: [

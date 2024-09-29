@@ -1,4 +1,4 @@
-import { SearchProps, CityProps } from "../types";
+import { SearchProps, CityProps } from "@/types";
 
 type SearchListOfCitiesType = Omit<
   SearchProps,

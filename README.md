@@ -4,7 +4,7 @@
 
 This application lets you check the weather forecast for the location of your choice.
 
-It displays a list of suggested cities (based on your input typed in a search form) and as one of them is clicked, application provides a 3 hours forecast and current weather characteristics, such as: temperature, min and max temp, cloud cover, sunrise/sunset, feels like, wind, visibility, pressure, humidity and precipitation.
+It displays a list of suggested cities (based on your input typed in a search form) and as one of them is clicked, application provides a 7 days forecast and current weather characteristics, such as: temperature, min and max temp, cloud cover, sunrise/sunset, wind, pressure, humidity and precipitation.
 
 By default, it runs in a light mode but enables user to toggle the theme to dark mode.
 

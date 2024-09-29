@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CityProps, ForecastDataProps } from "../types";
+import { CityProps, ForecastDataProps } from "@/types";
 
 function useForecast() {
   const [city, setCity] = useState<string>("");

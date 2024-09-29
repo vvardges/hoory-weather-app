@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Degree from "../components/Degree";
+import Degree from "@/components/Degree";
 
 describe("Degree", () => {
   it("should render 16 degree value", () => {

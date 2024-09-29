@@ -35,7 +35,7 @@ function App() {
         {forecast ? (
             <div className="flex flex-col-reverse md:flex-col justify-center items-center dark:bg-neutral-800 w-full min-h-screen">
               <Forecast forecastData={forecast} />
-              <Current forecastData={forecast} selectedCity={selectedCity}/>
+              {selectedCity && <Current forecastData={forecast} selectedCity={selectedCity}/>}
             </div>
             ) : (
             <Search
