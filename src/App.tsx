@@ -24,7 +24,7 @@ function App () {
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
-    <div className="relative w-full h-screen min-w-[320px] min-h-[350px] dark:bg-neutral-900">
+    <div className="relative w-full h-screen dark:bg-neutral-900">
       <div className={`${darkMode ? "dark" : "light"} flex justify-center items-center`}>
         {forecast && <ReturnToSearch handleReset={handleReset} />}
         <ToggleDarkMode toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
