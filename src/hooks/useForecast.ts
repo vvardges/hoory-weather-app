@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { CityProps, ForecastDataProps } from "@/types";
+import { mapResponseToData } from "@/helpers";
 
 function useForecast () {
   const [city, setCity] = useState<string>("");
@@ -21,50 +22,30 @@ function useForecast () {
       });
   }
 
-  function getForecast (data: CityProps) {
+  const cache = useRef(new Map());
+  const getForecast = useCallback((city: CityProps) => {
+    if (cache.current.has(city.name)) {
+      setForecast(cache.current.get(city.name));
+      return;
+    }
+
     fetch(
       `https://api.open-meteo.com/v1/forecast` +
-            `?latitude=${data.latitude}&longitude=${data.longitude}` +
-            `&daily=sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min` +
-            `&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m,pressure_msl,cloud_cover` +
-            `&timezone=auto`
+        `?latitude=${city.latitude}&longitude=${city.longitude}` +
+        `&daily=sunrise,sunset,weather_code,temperature_2m_max,temperature_2m_min` +
+        `&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m,pressure_msl,cloud_cover` +
+        `&timezone=auto`
     )
       .then((res) => res.json())
       .then((data) => {
-        const list = data.daily.time.map((date: string, index: number) => {
-          return {
-            dt: date,
-            main: {
-              temp_max: data.daily.temperature_2m_max[index],
-              temp_min: data.daily.temperature_2m_min[index],
-            },
-            code: data.daily.weather_code[index],
-          };
-        });
-        const current = {
-          sunrise: data.daily.sunrise[0],
-          sunset: data.daily.sunset[0],
-          wind: {
-            speed: data.current.wind_speed_10m,
-            gust: data.current.wind_gusts_10m,
-            deg: data.current.wind_direction_10m,
-          },
-          main: {
-            pressure: data.current.pressure_msl,
-            humidity: data.current.relative_humidity_2m,
-            temp: data.current.temperature_2m,
-            temp_max: data.daily.temperature_2m_max[0],
-            temp_min: data.daily.temperature_2m_min[0],
-          },
-          pop: data.current.precipitation,
-          clouds: data.current.cloud_cover,
-        }
-        setForecast({ list, current });
+        const mappedData = mapResponseToData(data);
+        cache.current.set(city.name, mappedData);
+        setForecast(mappedData);
       })
       .catch((e) => console.log(e));
-  }
+  }, [city])
 
-  function handleInputChange (e: React.ChangeEvent<HTMLInputElement>) {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     setCity(value);
@@ -74,7 +55,7 @@ function useForecast () {
     }
   }
 
-  function handleSelectedCity (city: CityProps) {
+  const handleSelectedCity = (city: CityProps) => {
     setSelectedCity(city);
     getForecast(city);
   }
@@ -86,7 +67,7 @@ function useForecast () {
     }
   }, [selectedCity]);
 
-  function handleReset () {
+  const handleReset = () => {
     setCity("");
     setListOfCities([]);
     setForecast(null);

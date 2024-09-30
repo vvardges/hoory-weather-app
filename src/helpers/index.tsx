@@ -125,6 +125,38 @@ export function getTilesBlueprint (
   ];
 }
 
+export const mapResponseToData = (data: { daily: { time: string[]; temperature_2m_max: any[]; temperature_2m_min: any[]; weather_code: any[]; sunrise: any[]; sunset: any[]; }; current: { wind_speed_10m: any; wind_gusts_10m: any; wind_direction_10m: any; pressure_msl: any; relative_humidity_2m: any; temperature_2m: any; precipitation: any; cloud_cover: any; }; }) => {
+  const list = data.daily.time.map((date: string, index: number) => {
+    return {
+      dt: date,
+      main: {
+        temp_max: data.daily.temperature_2m_max[index],
+        temp_min: data.daily.temperature_2m_min[index],
+      },
+      code: data.daily.weather_code[index],
+    };
+  });
+  const current = {
+    sunrise: data.daily.sunrise[0],
+    sunset: data.daily.sunset[0],
+    wind: {
+      speed: data.current.wind_speed_10m,
+      gust: data.current.wind_gusts_10m,
+      deg: data.current.wind_direction_10m,
+    },
+    main: {
+      pressure: data.current.pressure_msl,
+      humidity: data.current.relative_humidity_2m,
+      temp: data.current.temperature_2m,
+      temp_max: data.daily.temperature_2m_max[0],
+      temp_min: data.daily.temperature_2m_min[0],
+    },
+    pop: data.current.precipitation,
+    clouds: data.current.cloud_cover,
+  }
+  return { list, current };
+}
+
 export const mapIconToCode: WeatherData = {
   "0":{
     "day":{
