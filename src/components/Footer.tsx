@@ -10,7 +10,7 @@ export default function Footer ({ darkMode }: FooterProps) {
     <div
       className={`${
         darkMode ? "dark" : "light"
-      } fixed min-w-[300px] bottom-0 inset-x-0 space-x-2 flex dark:bg-neutral-800 p-2 justify-end`}
+      } fixed min-w-[300px] bottom-0 inset-x-0 space-x-2 flex dark:bg-neutral-800 p-2 justify-center`}
     >
       <h1 className="font-medium text-xs text-neutral-800 dark:text-neutral-200">
         © 2024 vvardges
