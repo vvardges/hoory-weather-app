@@ -1,4 +1,4 @@
-import { ForecastCurrentElementProps } from "@/types";
+import { ForecastCurrentElementProps, MapResponseToDataParams } from "@/types";
 import { ForecastTileProps } from "@/components/Current/components/Tile";
 
 interface DayNight {
@@ -125,7 +125,7 @@ export function getTilesBlueprint (
   ];
 }
 
-export const mapResponseToData = (data: { daily: { time: string[]; temperature_2m_max: any[]; temperature_2m_min: any[]; weather_code: any[]; sunrise: any[]; sunset: any[]; }; current: { wind_speed_10m: any; wind_gusts_10m: any; wind_direction_10m: any; pressure_msl: any; relative_humidity_2m: any; temperature_2m: any; precipitation: any; cloud_cover: any; }; }) => {
+export const mapResponseToData = (data: MapResponseToDataParams) => {
   const list = data.daily.time.map((date: string, index: number) => {
     return {
       dt: date,

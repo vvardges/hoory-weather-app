@@ -46,3 +46,24 @@ export interface ForecastDataProps {
   list: ForecastListElementProps[];
   current: ForecastCurrentElementProps;
 }
+
+export interface MapResponseToDataParams {
+  daily: {
+    sunrise: number[];
+    sunset: number[];
+    temperature_2m_max: number[];
+    temperature_2m_min: number[];
+    time: string[];
+    weather_code: number[];
+  };
+  current: {
+    wind_speed_10m: number;
+    wind_gusts_10m: number;
+    wind_direction_10m: number;
+    pressure_msl: number;
+    relative_humidity_2m: number;
+    temperature_2m: number;
+    precipitation: number;
+    cloud_cover: number;
+  };
+}
