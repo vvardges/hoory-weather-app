@@ -13,7 +13,7 @@ export default function Search ({
   loading,
 }: SearchProps) {
   return (
-    <section className="w-full md:w-full lg:w-full h-screen flex flex-col text-center items-center justify-center dark:bg-neutral-800">
+    <section className="w-full md:w-full lg:w-full mt-[15%] flex flex-col text-center items-center justify-center dark:bg-neutral-800">
       <Header />
       <div className="flex mt-5 space-x-2" onSubmit={(e) => e.preventDefault()}>
         <Input
