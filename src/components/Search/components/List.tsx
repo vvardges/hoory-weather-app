@@ -5,7 +5,7 @@ type SearchListOfCitiesType = Omit<
   "city" | "handleInputChange" | "handleReset"
 >;
 
-export default function List({
+export default function List ({
   listOfCities,
   handleSelectedCity,
 }: SearchListOfCitiesType) {

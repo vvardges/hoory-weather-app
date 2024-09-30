@@ -1,4 +1,4 @@
-export default function Humidity() {
+export default function Humidity () {
   return (
     <svg
       aria-hidden="true"

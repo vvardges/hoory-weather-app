@@ -6,7 +6,7 @@ interface ForecastIntervalsSectionProps {
   forecastData: ForecastDataProps;
 }
 
-export default function Forecast({
+export default function Forecast ({
   forecastData,
 }: ForecastIntervalsSectionProps) {
   return (

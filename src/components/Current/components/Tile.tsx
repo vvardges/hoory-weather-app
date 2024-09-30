@@ -27,7 +27,7 @@ const icons = {
   precipitation: PrecipitationIcon,
 };
 
-export default function Tile({
+export default function Tile ({
   icon,
   title,
   info,

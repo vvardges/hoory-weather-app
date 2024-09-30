@@ -1,4 +1,4 @@
-export default function Precipitation() {
+export default function Precipitation () {
   return (
     <svg
       aria-hidden="true"

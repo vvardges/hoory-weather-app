@@ -1,4 +1,4 @@
-export default function Wind() {
+export default function Wind () {
   return (
     <svg
       aria-hidden="true"

@@ -1,4 +1,4 @@
-export default function GitHubIcon() {
+export default function GitHubIcon () {
   return (
     <svg
       aria-hidden="true"

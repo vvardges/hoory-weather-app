@@ -1,4 +1,4 @@
-import {CityProps, ForecastDataProps} from "@/types";
+import { CityProps, ForecastDataProps } from "@/types";
 
 import Header from "@/components/Current/components/Header";
 import SunriseSunset from "@/components/Current/components/SunriseSunset";
@@ -9,8 +9,8 @@ export interface ForecastProps {
   selectedCity: CityProps;
 }
 
-export default function Current({ forecastData, selectedCity }: ForecastProps) {
-  const {current} = forecastData;
+export default function Current ({ forecastData, selectedCity }: ForecastProps) {
+  const { current } = forecastData;
   return (
     <div className="mb-5 mt-10">
       <Header today={current} selectedCity={selectedCity}/>

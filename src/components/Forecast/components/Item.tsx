@@ -1,5 +1,5 @@
 import { ForecastListElementProps } from "@/types";
-import {formatDateToWeekday, mapIconToCode} from "@/helpers";
+import { formatDateToWeekday, mapIconToCode } from "@/helpers";
 
 import Degree from "@/components/Degree";
 
@@ -7,7 +7,7 @@ interface ForecastIntervalProps {
   forecastIntervalData: ForecastListElementProps;
 }
 
-export default function Item({
+export default function Item ({
   forecastIntervalData,
 }: ForecastIntervalProps) {
   const mappedIcon = mapIconToCode[forecastIntervalData.code];

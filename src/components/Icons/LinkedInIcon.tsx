@@ -1,4 +1,4 @@
-export default function LinkedInIcon() {
+export default function LinkedInIcon () {
   return (
     <svg
       aria-hidden="true"

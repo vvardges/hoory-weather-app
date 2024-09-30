@@ -4,7 +4,7 @@ interface ReturnToSearchProps {
   handleReset: () => void;
 }
 
-export default function ReturnToSearch({ handleReset }: ReturnToSearchProps) {
+export default function ReturnToSearch ({ handleReset }: ReturnToSearchProps) {
   return (
     <div className="object-left-top">
       <button

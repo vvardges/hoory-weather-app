@@ -8,7 +8,7 @@ import ReturnToSearch from "@/components/ReturnToSearch";
 import Footer from "@/components/Footer";
 import Current from "@/components/Current";
 
-function App() {
+function App () {
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
   const {
@@ -25,20 +25,16 @@ function App() {
 
   return (
     <div className="relative w-full h-screen min-w-[320px] min-h-[350px] dark:bg-neutral-900">
-      <div
-        className={`${
-          darkMode ? "dark" : "light"
-        } flex justify-center items-center`}
-      >
+      <div className={`${darkMode ? "dark" : "light"} flex justify-center items-center`}>
         {forecast && <ReturnToSearch handleReset={handleReset} />}
         <ToggleDarkMode toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         {forecast ? (
-            <div className="flex flex-col-reverse md:flex-col justify-center items-center dark:bg-neutral-800 w-full min-h-screen">
-              <Forecast forecastData={forecast} />
-              {selectedCity && <Current forecastData={forecast} selectedCity={selectedCity}/>}
-            </div>
-            ) : (
-            <Search
+          <div className="flex flex-col-reverse md:flex-col justify-center items-center dark:bg-neutral-800 w-full min-h-screen">
+            <Forecast forecastData={forecast} />
+            {selectedCity && <Current forecastData={forecast} selectedCity={selectedCity}/>}
+          </div>
+        ) : (
+          <Search
             city={city}
             listOfCities={listOfCities}
             handleInputChange={handleInputChange}

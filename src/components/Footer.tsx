@@ -5,7 +5,7 @@ interface FooterProps {
   darkMode: boolean;
 }
 
-export default function Footer({ darkMode }: FooterProps) {
+export default function Footer ({ darkMode }: FooterProps) {
   return (
     <div
       className={`${

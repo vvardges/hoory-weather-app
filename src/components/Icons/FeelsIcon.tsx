@@ -1,4 +1,4 @@
-export default function Feels() {
+export default function Feels () {
   return (
     <svg
       aria-hidden="true"

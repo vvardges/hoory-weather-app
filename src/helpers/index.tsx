@@ -1,5 +1,5 @@
-import {ForecastCurrentElementProps} from "@/types";
-import {ForecastTileProps} from "@/components/Current/components/Tile";
+import { ForecastCurrentElementProps } from "@/types";
+import { ForecastTileProps } from "@/components/Current/components/Tile";
 
 interface DayNight {
   description: string;
@@ -13,7 +13,7 @@ interface WeatherData {
   };
 }
 
-export function formatDateToHoursAndMinutes(DateString: string) {
+export function formatDateToHoursAndMinutes (DateString: string) {
   const date = new Date(DateString);
   let hours = date.getHours().toString();
   let minutes = date.getMinutes().toString();
@@ -25,72 +25,72 @@ export function formatDateToHoursAndMinutes(DateString: string) {
 }
 
 export const formatDateToWeekday = (date: string) =>
-    new Date(date).toLocaleDateString('en-US', { weekday: 'short' });
+  new Date(date).toLocaleDateString('en-US', { weekday: 'short' });
 
-export function getHumidityDescription(level: number) {
+export function getHumidityDescription (level: number) {
   switch (true) {
-    case level <= 55:
-      return "Dry and comfortable.";
-    case level > 55 && level < 65:
-      return `Slightly uncomfortable.`;
-    case level >= 65:
-      return "Lots of moisture, uncomfortable.";
-    default:
-      break;
+  case level <= 55:
+    return "Dry and comfortable.";
+  case level > 55 && level < 65:
+    return `Slightly uncomfortable.`;
+  case level >= 65:
+    return "Lots of moisture, uncomfortable.";
+  default:
+    break;
   }
 }
 
-export function getPrecipitationDescription(pop: number) {
+export function getPrecipitationDescription (pop: number) {
   switch (true) {
-    case pop < 0.2:
-      return "No chance, ";
-    case pop >= 0.2 && pop < 0.3:
-      return "Slight chance, ";
-    case pop >= 0.3 && pop < 0.6:
-      return "A chance, ";
-    case pop >= 0.6 && pop < 0.7:
-      return "Likely, ";
-    case pop >= 0.7:
-      return "Most likely, ";
-    default:
-      break;
+  case pop < 0.2:
+    return "No chance, ";
+  case pop >= 0.2 && pop < 0.3:
+    return "Slight chance, ";
+  case pop >= 0.3 && pop < 0.6:
+    return "A chance, ";
+  case pop >= 0.6 && pop < 0.7:
+    return "Likely, ";
+  case pop >= 0.7:
+    return "Most likely, ";
+  default:
+    break;
   }
 }
 
-export function getPressureDescription(pressure: number) {
+export function getPressureDescription (pressure: number) {
   const standardPressureValue = 1013;
 
   return pressure > standardPressureValue ? "High pressure." : "Low pressure.";
 }
 
-export function getWindDirection(degree: number) {
+export function getWindDirection (degree: number) {
   switch (true) {
-    case degree === 360:
-      return "N";
-    case degree === 90:
-      return "E";
-    case degree === 180:
-      return "S";
-    case degree === 270:
-      return "W";
-    case degree > 0 && degree < 90:
-      return "NE";
-    case degree > 90 && degree < 180:
-      return "SE";
-    case degree > 180 && degree < 270:
-      return "SW";
-    case degree > 270 && degree < 360:
-      return "NW";
-    default:
-      break;
+  case degree === 360:
+    return "N";
+  case degree === 90:
+    return "E";
+  case degree === 180:
+    return "S";
+  case degree === 270:
+    return "W";
+  case degree > 0 && degree < 90:
+    return "NE";
+  case degree > 90 && degree < 180:
+    return "SE";
+  case degree > 180 && degree < 270:
+    return "SW";
+  case degree > 270 && degree < 360:
+    return "NW";
+  default:
+    break;
   }
 }
 
-export function getSubjectiveTemp(feelsLike: number, temp: number) {
+export function getSubjectiveTemp (feelsLike: number, temp: number) {
   return feelsLike < temp ? "Feels colder." : "Feels warmer.";
 }
 
-export function getTilesBlueprint(
+export function getTilesBlueprint (
   today: ForecastCurrentElementProps
 ):ForecastTileProps[] {
   return [

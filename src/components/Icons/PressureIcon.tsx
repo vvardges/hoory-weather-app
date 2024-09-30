@@ -1,4 +1,4 @@
-export default function Pressure() {
+export default function Pressure () {
   return (
     <svg
       aria-hidden="true"

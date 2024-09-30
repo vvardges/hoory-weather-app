@@ -1,4 +1,4 @@
-export default function Sunrise() {
+export default function Sunrise () {
   return (
     <svg
       aria-hidden="true"

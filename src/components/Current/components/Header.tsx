@@ -1,4 +1,4 @@
-import {CityProps, ForecastCurrentElementProps} from "@/types";
+import { CityProps, ForecastCurrentElementProps } from "@/types";
 
 import Degree from "@/components/Degree";
 
@@ -7,7 +7,7 @@ interface ForecastHeaderProps {
   selectedCity: CityProps;
 }
 
-export default function Header({ today, selectedCity }: ForecastHeaderProps) {
+export default function Header ({ today, selectedCity }: ForecastHeaderProps) {
   return (
     <section className="text-center">
       <h2 className="text-xl font-medium text-neutral-900  dark:text-neutral-200">

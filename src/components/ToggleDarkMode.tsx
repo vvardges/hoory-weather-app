@@ -6,7 +6,7 @@ interface ToggleDarkModeProps {
   darkMode: boolean;
 }
 
-export default function ToggleDarkMode({
+export default function ToggleDarkMode ({
   toggleDarkMode,
   darkMode,
 }: ToggleDarkModeProps) {

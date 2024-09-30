@@ -5,7 +5,7 @@ import ResetIcon from "@/components/Icons/ResetIcon";
 
 type SearchInputType = Omit<SearchProps, "listOfCities" | "handleSelectedCity">;
 
-export default function Input({
+export default function Input ({
   city,
   handleInputChange,
   handleReset,

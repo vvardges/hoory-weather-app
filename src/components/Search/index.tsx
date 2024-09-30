@@ -4,7 +4,7 @@ import Header from "@/components/Search/components/Header";
 import Input from "@/components/Search/components/Input";
 import List from "@/components/Search/components/List";
 
-export default function Search({
+export default function Search ({
   city,
   listOfCities,
   handleInputChange,

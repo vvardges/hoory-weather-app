@@ -1,4 +1,4 @@
-export default function SearchIcon() {
+export default function SearchIcon () {
   return (
     <svg
       aria-hidden="true"

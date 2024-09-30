@@ -1,4 +1,4 @@
-export default function Visibility() {
+export default function Visibility () {
   return (
     <svg
       aria-hidden="true"
