@@ -1,4 +1,8 @@
-import {ForecastCurrentElementProps, ForecastDataProps, MapResponseToDataParams} from "@/types";
+import {
+  ForecastCurrentElementProps,
+  ForecastDataProps,
+  MapResponseToDataParams
+} from "@/types";
 import { ForecastTileProps } from "@/components/Current/components/Tile";
 
 interface DayNight {
