@@ -3,7 +3,7 @@ import { SearchProps } from "@/types";
 import SearchIcon from "@/components/Icons/SearchIcon";
 import ResetIcon from "@/components/Icons/ResetIcon";
 
-type SearchInputType = Omit<SearchProps, "listOfCities" | "handleSelectedCity">;
+type SearchInputType = Omit<SearchProps, "listOfCities" | "handleSelectedCity" | "loading">;
 
 export default function Input ({
   city,

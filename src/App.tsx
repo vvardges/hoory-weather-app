@@ -7,6 +7,7 @@ import ToggleDarkMode from "@/components/ToggleDarkMode";
 import ReturnToSearch from "@/components/ReturnToSearch";
 import Footer from "@/components/Footer";
 import Current from "@/components/Current";
+import Loader from "@/components/Icons/Loader";
 
 function App () {
   const [darkMode, setDarkMode] = useState<boolean>(false);
@@ -16,6 +17,7 @@ function App () {
     selectedCity,
     listOfCities,
     forecast,
+    loading,
     handleInputChange,
     handleSelectedCity,
     handleReset,
@@ -28,13 +30,22 @@ function App () {
       <div className={`${darkMode ? "dark" : "light"} flex justify-center items-center`}>
         {forecast && <ReturnToSearch handleReset={handleReset} />}
         <ToggleDarkMode toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-        {forecast ? (
+        {selectedCity ? (
           <div className="flex flex-col-reverse md:flex-col justify-center items-center dark:bg-neutral-800 w-full min-h-screen">
-            <Forecast forecastData={forecast} />
-            {selectedCity && <Current forecastData={forecast} selectedCity={selectedCity}/>}
+            {forecast ?
+              <>
+                <Forecast forecastData={forecast} />
+                <Current
+                  forecastData={forecast}
+                  selectedCity={selectedCity}
+                />
+              </> :
+              <Loader/>
+            }
           </div>
         ) : (
           <Search
+            loading={loading}
             city={city}
             listOfCities={listOfCities}
             handleInputChange={handleInputChange}
@@ -43,7 +54,7 @@ function App () {
           />
         )}
       </div>
-      <Footer darkMode={darkMode} />
+      <Footer darkMode={darkMode}/>
     </div>
   );
 }

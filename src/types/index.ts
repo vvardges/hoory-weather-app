@@ -4,6 +4,7 @@ export interface SearchProps {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSelectedCity: (city: CityProps) => void;
   handleReset: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  loading: boolean;
 }
 
 export interface CityProps {

@@ -10,6 +10,7 @@ export default function Search ({
   handleInputChange,
   handleSelectedCity,
   handleReset,
+  loading,
 }: SearchProps) {
   return (
     <section className="w-full md:w-full lg:w-full h-screen flex flex-col text-center items-center justify-center dark:bg-neutral-800">
@@ -22,6 +23,7 @@ export default function Search ({
         />
 
         <List
+          loading={loading}
           listOfCities={listOfCities}
           handleSelectedCity={handleSelectedCity}
         />

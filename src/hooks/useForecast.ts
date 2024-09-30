@@ -4,16 +4,21 @@ import { CityProps, ForecastDataProps } from "@/types";
 function useForecast () {
   const [city, setCity] = useState<string>("");
   const [listOfCities, setListOfCities] = useState<[]>([]);
+  const [loading, setLoading] = useState(false);
   const [selectedCity, setSelectedCity] = useState<CityProps | null>(null);
   const [forecast, setForecast] = useState<ForecastDataProps | null>(null);
 
   function getListOfCities (data: string) {
+    setLoading(true);
     fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${data.trim()}&count=6`
     )
       .then((res) => res.json())
       .then((data) => setListOfCities(data.results || []))
-      .catch((e) => console.log(e));
+      .catch((e) => console.log(e))
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   function getForecast (data: CityProps) {
@@ -93,6 +98,7 @@ function useForecast () {
     selectedCity,
     listOfCities,
     forecast,
+    loading,
     handleInputChange,
     handleReset,
     handleSelectedCity,
