@@ -38,7 +38,7 @@ function useForecast () {
     )
       .then((res) => res.json())
       .then((data) => {
-        const mappedData = mapResponseToData({ data : data });
+        const mappedData = mapResponseToData(data);
         cache.current.set(city.name, mappedData);
         setForecast(mappedData);
       })

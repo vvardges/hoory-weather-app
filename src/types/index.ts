@@ -49,8 +49,8 @@ export interface ForecastDataProps {
 
 export interface MapResponseToDataParams {
   daily: {
-    sunrise: number[];
-    sunset: number[];
+    sunrise: string[];
+    sunset: string[];
     temperature_2m_max: number[];
     temperature_2m_min: number[];
     time: string[];
